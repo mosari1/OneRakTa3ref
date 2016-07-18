@@ -16,7 +16,7 @@ class AuthentificationMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(!Session::has('Snom')){
+        if(!Session::has('Sprenom')){
             return redirect()->action('AuthentificationController@index');
         }
         return $next($request);

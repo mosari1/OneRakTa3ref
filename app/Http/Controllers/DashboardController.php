@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Session;
 class DashboardController extends Controller
 {
     public function index(){
-        if (Session::has('SadminID') && Session::get('Sposte') == 'administrateur'){
+        //dd();
+        if (Session::has('SadminID') != null && Session::get('Sposte') == 'administrateur'){
+            //dd();
             return view('Dashboard.Dashboard');
         }
         elseif(Session::has('SvendeurID') && Session::get('Sposte') == 'vendeur'){

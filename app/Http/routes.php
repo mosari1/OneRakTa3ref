@@ -17,7 +17,9 @@ Route::resource('connexion','AuthentificationController');
 
 Route::group(['middleware' => ['web','conecte']], function () {
     Route::get('/', function () {
+        
         return redirect()->action('AuthentificationController@index');
     });
     Route::resource('Dashboard','DashboardController');
+    Route::get('logout','AuthentificationController@logout');
 });

@@ -10,20 +10,26 @@ use App\Utilisateur;
 class AuthentificationController extends Controller
 {
     public function index (){
-//        if (Session::has('SadminID') && Session::get('poste') == 'admin'){
-//            return redirect()->action('DashboardController@index');
-//        }
-//        if (Session::has('SvendeurID') && Session::get('poste') == 'vendeur') {
-//            return redirect()->action('DashboardController@index');
-//        }
-        return view('Authentification.login');
+
+        if (Session::has('SadminID') != null && Session::get('poste') == 'administrateur'){
+            dd();
+            return redirect()->action('DashboardController@index');
+        }
+        if (Session::has('SvendeurID') && Session::get('poste') == 'vendeur') {
+            dd();
+            return redirect()->action('DashboardController@index');
+        }
+        else{       return view('Authentification.login');
+        }
     }
     public function Authentification(Request $request){
         $pseudo = $request->username;
         $password = $request->password;
         $admin =  Utilisateur::where('pseudo',$pseudo)->where('password',$password)->first();
+        echo $admin;
         $vendeur =  Utilisateur::where('pseudo',$pseudo)->where('password',$password)->first();
         if ($admin){
+            //dd();
             Session::put('SadminID',$admin->id);
             Session::put('Snom',    $admin->nom);
             Session::put('Sprenom', $admin->prenom);
@@ -46,5 +52,9 @@ class AuthentificationController extends Controller
             Session::flash('user_not_found_msg', 'Veuillez vérifier votre psw ou username' );
             return view('Authentification.login');
         }
+    }
+    public function logout(){
+        Session::flush();
+        return redirect()->action('AuthentificationController@index');
     }
 }
