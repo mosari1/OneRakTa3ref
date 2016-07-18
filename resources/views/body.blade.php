@@ -19,6 +19,13 @@
     <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- jVectorMap -->
     <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
@@ -91,10 +98,43 @@
     <script src="js/moment/moment.min.js"></script>
     <script src="js/datepicker/daterangepicker.js"></script>
 
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    {{--<script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>--}}
+    {{--<script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>--}}
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    {{--<script src="vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>--}}
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 
     <!-- Flot -->
+    <script>
+      $(document).ready(function() {
+        $('#datatable-responsive').DataTable(
+                {
+                  'language': {
+                    "lengthMenu": " _MENU_ ",
+                    search : '',
+                    "info": "",
+                    searchPlaceholder: 'Recherche',
+                    "paginate": {
+                      "first":      "Premier",
+                      "previous":   "«",
+                      "next":       "»",
+                      "last":       "Dernier"
+                    },
+                    "infoFiltered":   "",
+                  }
+                }
+        );
+      } );
+    </script>
     <script>
       $(document).ready(function() {
         var data1 = [
