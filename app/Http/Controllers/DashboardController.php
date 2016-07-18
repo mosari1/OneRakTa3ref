@@ -17,7 +17,7 @@ class DashboardController extends Controller
             return view('Dashboard.Dashboard');
         }
         else{
-//            return view('Authentification.login');
+            return view('Authentification.login');
         }
     }
 }
