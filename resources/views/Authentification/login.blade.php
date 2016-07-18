@@ -16,9 +16,13 @@
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Animate.css -->
     <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
 </head>
 
 <body class="login">
@@ -28,6 +32,7 @@
 
     <div class="login_wrapper">
         <div class="animate form login_form">
+
             <section class="login_content">
                 {!! Form::open(array('url' => 'Authentification')) !!}
                     <h1>Autentification</h1>
@@ -46,7 +51,12 @@
                     <div class="separator">
                         <div class="clearfix"></div>
                         <br />
-
+                        @if(Session::has('user_not_found_msg'))
+                            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                <button href="#" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+                                <i>{!! session('user_not_found_msg') !!}</i>
+                            </div>
+                        @endif
                         <div>
                             <img src="images/logo.png" alt="" class="bs-brand-logos">
                             <h1>OneGest</h1>
@@ -58,5 +68,8 @@
         </div>
     </div>
 </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
