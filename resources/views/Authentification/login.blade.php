@@ -30,7 +30,7 @@
         <div class="animate form login_form">
             <section class="login_content">
                 {!! Form::open(array('url' => 'Authentification')) !!}
-                    <h1>Auttthhhentification</h1>
+                    <h1>Autentification</h1>
                     <div>
                         <input type="text" class="form-control" placeholder="Username" required="" name="username" />
                     </div>
