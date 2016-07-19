@@ -25,6 +25,7 @@
     <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/Expandable-Bootstrap-Table-Rows/css/bootstrap-table-expandable.css" rel="stylesheet">
 
 
     <!-- Custom Theme Style -->
@@ -112,6 +113,8 @@
     {{--<script src="vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>--}}
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+    <script src="vendors/Expandable-Bootstrap-Table-Rows/js/bootstrap-table-expandable.js"></script>
+
 
     <!-- Flot -->
     <script>
