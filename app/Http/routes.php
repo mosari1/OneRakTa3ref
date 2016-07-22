@@ -22,8 +22,21 @@ Route::group(['middleware' => ['web','conecte']], function () {
     });
     Route::resource('Dashboard','DashboardController');
     Route::get('logout','AuthentificationController@logout');
-    Route::get('Fournisseur',function(){
+    Route::get('Fournisseur.index',function(){
         $fournisseurs = \App\Fournisseur::all();
        return view('Fournisseur.Index',compact('fournisseurs'));
     });
+    Route::get('Fournisseur.create',function(){
+        //$fournisseurs = \App\Fournisseur::all();
+        return view('Fournisseur.Create');
+    });
+    Route::post('Fournisseur.Validation','FournisseurController@create');
+     Route::get('    Fournisseur.Modification',function(){
+         $fournisseur = \App\Fournisseur::find(\Illuminate\Support\Facades\Input::get('id'))->first();
+         return view('Fournisseur.Edit',compact('fournisseur'));
+     });
+    Route::post('Fournisseur.Modification','FournisseurController@edit');
+
+
+
 });

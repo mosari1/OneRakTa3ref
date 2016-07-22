@@ -26,7 +26,8 @@
       <ul class="nav side-menu" style="">
         <li><a><i class="fa fa-home"></i>Gestion des fournisseurs</a>
           <ul class="nav child_menu" style="">
-            <li><a href="Fournisseur">Liste des fournisseurs</a></li>
+            <li><a href="Fournisseur.index">Liste des fournisseurs</a></li>
+            <li><a href="Fournisseur.create">Ajouter un fournisseur</a></li>
 
 
           </ul>

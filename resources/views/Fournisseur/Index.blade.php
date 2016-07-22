@@ -9,8 +9,8 @@
                 <th>Téléphone</th>
                 <th>Email</th>
                 <th>Détails</th>
-
-
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +37,8 @@
                             <b>Détails événement</b>
                         </div>
                     </th>
+                    <th class="text-center"><a href="{{url('Fournisseur.Modification?id='.$fournisseur->id)}}" class="fa fa-edit"></a></th>
+                    <th class="text-center"><a data-id="#" class=" open-AddBookDialog fa fa-trash" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User"></a></th>
                 </tr>
             @endforeach
             </tbody>
