@@ -1,6 +1,19 @@
 @extends('body')
 @section('content')
     <div class="col-sm-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Liste des Fournisseurs </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
         <table class="table table-striped table-bordered " id="datatable-responsive">
             <thead>
             <tr>
@@ -43,5 +56,7 @@
             @endforeach
             </tbody>
         </table>
+                </div>
+    </div>
     </div>
 @endsection

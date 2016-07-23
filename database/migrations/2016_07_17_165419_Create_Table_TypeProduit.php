@@ -15,10 +15,9 @@ class CreateTableTypeProduit extends Migration
         Schema::create('Type_Produit', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type')->unique();
-            
             $table->rememberToken();
             $table->timestamps();
-            
+
         });
     }
 

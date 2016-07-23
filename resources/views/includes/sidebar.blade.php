@@ -8,7 +8,7 @@
   <!-- menu profile quick info -->
   <div class="profile">
     <div class="profile_pic">
-      <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+      <img src="{{asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
       <span>Welcome,</span>
@@ -26,10 +26,16 @@
       <ul class="nav side-menu" style="">
         <li><a><i class="fa fa-home"></i>Gestion des fournisseurs</a>
           <ul class="nav child_menu" style="">
-            <li><a href="Fournisseur.index">Liste des fournisseurs</a></li>
-            <li><a href="Fournisseur.create">Ajouter un fournisseur</a></li>
+            <li><a href="{{url('Fournisseur.index')}}">Liste des fournisseurs</a></li>
+            <li><a href="{{url('Fournisseur.create')}}">Ajouter un fournisseur</a></li>
 
 
+          </ul>
+        </li>
+        <li><a><i class="fa fa-home"></i>Gestion des produits</a>
+          <ul class="nav child_menu" style="">
+            <li><a href="{{route('Produit.index')}}">Liste des produits</a></li>
+            <li><a href="{{route('Produit.create')}}">Ajouter un produit</a></li>
           </ul>
         </li>
       </ul>

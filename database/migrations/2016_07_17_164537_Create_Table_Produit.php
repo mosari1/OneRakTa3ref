@@ -20,7 +20,9 @@ class CreateTableProduit extends Migration
             $table->string('prix_achat');
             $table->string('prix_vente');
             $table->string('quantite');
-            
+            $table->string('gain');
+            $table->integer('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('Type_Produit');
             
             $table->rememberToken();
             $table->timestamps();
