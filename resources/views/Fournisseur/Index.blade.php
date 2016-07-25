@@ -5,11 +5,10 @@
             <div class="x_title">
                 <h2>Liste des Fournisseurs </h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
+                    <a href="{{url('Fournisseur.create')}}" class="btn btn-flat btn-success pull-right">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
+                        Ajouter
+                    </a>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -17,6 +16,7 @@
         <table class="table table-striped table-bordered " id="datatable-responsive">
             <thead>
             <tr>
+                <th>Code</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Téléphone</th>
@@ -29,6 +29,7 @@
             <tbody>
             @foreach($fournisseurs as $fournisseur)
                 <tr>
+                    <th>{{$fournisseur->code}}</th>
                     <th>{{$fournisseur->nom}}</th>
                     <th>{{$fournisseur->prenom}}</th>
                     <th>{{$fournisseur->tel}}</th>
@@ -56,7 +57,7 @@
             @endforeach
             </tbody>
         </table>
-                </div>
+            </div>
     </div>
     </div>
 @endsection

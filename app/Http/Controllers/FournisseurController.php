@@ -6,10 +6,14 @@ use App\Fournisseur;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Integer;
 
 class FournisseurController extends Controller
 {
     public function create(Request $request){
+        $code = Fournisseur::all()->last()->code;
+        $code = str_replace('F','',$code);
+        $newcode = (int)$code + 1;
         $fournisseur = new Fournisseur();
         $fournisseur->nom = $request->nom;
         $fournisseur->prenom = $request->prenom;
@@ -20,6 +24,7 @@ class FournisseurController extends Controller
         $fournisseur->nis = $request->nis;
         $fournisseur->ai = $request->ai;
         $fournisseur->nif = $request->nif;
+        $fournisseur->code = 'F00000'.$newcode;
         Session::flash('ajout_fournisseur', 'Fournisseur ajouté avec succès' );
         $fournisseur->save();
         return view('Fournisseur.Create');
