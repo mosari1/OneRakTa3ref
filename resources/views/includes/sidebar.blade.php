@@ -28,14 +28,18 @@
           <ul class="nav child_menu" style="">
             <li><a href="{{url('Fournisseur.index')}}">Liste des fournisseurs</a></li>
             <li><a href="{{url('Fournisseur.create')}}">Ajouter un fournisseur</a></li>
-
-
           </ul>
         </li>
-        <li><a><i class="fa fa-home"></i>Gestion des produits</a>
+        <li><a><i class="fa fa-home"></i>Gestion de stock</a>
           <ul class="nav child_menu" style="">
             <li><a href="{{route('Produit.index')}}">Liste des produits</a></li>
             <li><a href="{{route('Produit.create')}}">Ajouter un produit</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-home"></i>Gestion des achats</a>
+          <ul class="nav child_menu" style="">
+            <li><a href="{{route('Achat.index')}}">Liste des achats</a></li>
+            <li><a href="{{route('Achat.create')}}">Ajouter un achat</a></li>
           </ul>
         </li>
       </ul>

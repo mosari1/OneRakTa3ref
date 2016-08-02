@@ -36,7 +36,7 @@ Route::group(['middleware' => ['web','conecte']], function () {
          return view('Fournisseur.Edit',compact('fournisseur'));
      });
     Route::post('Fournisseur.Modification','FournisseurController@edit');
-
+    Route::resource('Achat','AchatController');
     
     //////////////////////////LOTFI ROUTE
 

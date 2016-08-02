@@ -29,12 +29,12 @@
             <tbody>
             @foreach($fournisseurs as $fournisseur)
                 <tr>
-                    <th>{{$fournisseur->code}}</th>
-                    <th>{{$fournisseur->nom}}</th>
-                    <th>{{$fournisseur->prenom}}</th>
-                    <th>{{$fournisseur->tel}}</th>
-                    <th>{{$fournisseur->email}}</th>
-                    <th class="text-center">
+                    <td>{{$fournisseur->code}}</td>
+                    <td>{{$fournisseur->nom}}</td>
+                    <td>{{$fournisseur->prenom}}</td>
+                    <td>{{$fournisseur->tel}}</td>
+                    <td>{{$fournisseur->email}}</td>
+                    <td class="text-center">
                         <a href="#" class="example-popover-3" data-trigger="hover"  data-placement="bottom"><i class="fa fa-plus-circle"></i></a>
 
                         <div class="example-popover-3-content hidden">
@@ -50,9 +50,9 @@
                         <div class="example-popover-3-title hidden" >
                             <b>Détails événement</b>
                         </div>
-                    </th>
-                    <th class="text-center"><a href="{{url('Fournisseur.Modification?id='.$fournisseur->id)}}" class="fa fa-edit"></a></th>
-                    <th class="text-center"><a data-id="#" class=" open-AddBookDialog fa fa-trash" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User"></a></th>
+                    </td>
+                    <tdh class="text-center"><a href="{{url('Fournisseur.Modification?id='.$fournisseur->id)}}" class="fa fa-edit"></a></tdh>
+                    <td class="text-center"><a data-id="#" class=" open-AddBookDialog fa fa-trash" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User"></a></td>
                 </tr>
             @endforeach
             </tbody>

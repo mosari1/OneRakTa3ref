@@ -28,11 +28,15 @@
   <link href="{{asset("vendors/Expandable-Bootstrap-Table-Rows/css/bootstrap-table-expandable.css" )}}" rel="stylesheet">
 
 
+
+
   <!-- Custom Theme Style -->
   <link href="{{asset("build/css/custom.min.css")}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
+<script src="{{asset("vendors/jquery/dist/jquery.min.js")}}"></script>
+
 <div class="container body">
   <div class="main_container">
     <div class="col-md-3 left_col">
@@ -79,6 +83,8 @@
 <script src="{{asset("vendors/iCheck/icheck.min.js")}}"></script>
 <!-- Skycons -->
 <script src="{{asset("vendors/skycons/skycons.js")}}"></script>
+
+
 <!-- Flot -->
 <script src="{{asset("vendors/Flot/jquery.flot.js")}}"></script>
 <script src="{{asset("vendors/Flot/jquery.flot.pie.js")}}"></script>
@@ -110,6 +116,7 @@
         <!-- Custom Theme Scripts -->
 <script src="{{asset("build/js/custom.min.js")}}"></script>
 <script src="{{asset("vendors/Expandable-Bootstrap-Table-Rows/js/bootstrap-table-expandable.js")}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 
 <!-- Flot -->
@@ -245,6 +252,39 @@
       }
     });
   });
+</script>
+<script>
+//  $("#add_new").click(function () {
+//
+//    $("#maintable").each(function () {
+//
+//      var tds = '<tr>';
+//      jQuery.each($('tr:last td', this), function () {
+//        tds += '<td>' + $(this).html() + '</td>';
+//      });
+//      tds += '</tr>';
+//      if ($('tbody', this).length > 0) {
+//        $('tbody', this).append(tds);
+//      } else {
+//        $(this).append(tds);
+//      }
+//    });
+//  });
+
+  $("#add_new").click(function(){
+    $("#maintable").append(' <tr><td></td><td> <select class="form-control input-sm"> <option>Produit</option> </select> </td> <td> <input type="number" class="form-control input-sm"> </td> <td> <input type="number" class="form-control input-sm"> </td> <td> <input type="number" class="form-control input-sm"> </td> <td> <input type="number" class="form-control input-sm"> </td> <td> <input type="number" class="form-control input-sm"> </td><td></td> </tr>');
+  });
+$("#remove").on('click',function(){
+  $(this).parent().remove();
+});
+
+</script>
+<script type="text/javascript">
+  function deleterow() {
+    var table = document.getElementById("maintable");
+    var rowCount = table.rows.length;
+    table.deleteRow(rowCount-1);
+  }
 </script>
 <!-- /jVectorMap -->
 
