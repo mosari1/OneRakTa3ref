@@ -12,7 +12,15 @@ class CreateTableAchat extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Achat', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('code')->unique();
+            $table->string('total_ht');
+            $table->string('total_ttc');
+            $table->rememberToken();
+            $table->timestamps();
+
+        });
     }
 
     /**

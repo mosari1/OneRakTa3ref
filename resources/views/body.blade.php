@@ -122,7 +122,7 @@
 <!-- Flot -->
 <script>
   $(document).ready(function() {
-    $('#datatable-responsive').DataTable(
+    var table = $('#datatable-responsive').DataTable(
             {
               'language': {
                 "lengthMenu": " _MENU_ ",
@@ -136,9 +136,21 @@
                   "last":       "Dernier"
                 },
                 "infoFiltered":   "",
+              },
+              "drawCallback" : function(){
+                // Enables popover #2
+                $(".example-popover-3").popover({
+                  html : true,
+                  content: function() {
+                    return $(this).next(".example-popover-3-content").html();
+                  },
+                  title: function() {
+                    return $(".example-popover-3-title").html();
+                  }
+                });
               }
-            }
-    );
+            });
+
   } );
 </script>
 <script>

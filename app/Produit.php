@@ -15,4 +15,7 @@ class Produit extends Model
         return $this->primaryKey;
 
     }
+    public function achat(){
+        return $this->belongsToMany('App\Achat','produit_achat','id_produit','id_achat');
+    }
 }

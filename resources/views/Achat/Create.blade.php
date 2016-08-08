@@ -1,8 +1,5 @@
 @extends('body')
 @section('content')
-
-
-
     <div class="col-sm-12">
         <div class="x_panel">
             <div class="x_title">
@@ -12,26 +9,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-               <div class="row">
-                   <div class="col-sm-12">
-                       <div class="form-group col-sm-6">
-                           <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="fa fa-hashtag"></i>
-                                    </span>
-                               <input type="text" class="form-control" name="nom" placeholder="Numero" value="">
-                           </div>
-                       </div>
-                       <div class="form-group col-sm-6">
-                           <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="fa fa-hashtag"></i>
-                                    </span>
-                               <input type="text" class="form-control" name="nom" placeholder="Code" value="">
-                           </div>
-                       </div>
-                   </div>
-               </div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group col-sm-6">
@@ -39,26 +17,14 @@
                                     <span class="input-group-addon">
                                     <i class="fa fa-hashtag"></i>
                                     </span>
-                                <select  class="form-control" name="nom" >
-                                    <option>Fournisseur</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="fa fa-hashtag"></i>
-                                    </span>
-                                <input type="date" class="form-control" name="nom" placeholder="Numero" >
+                                <input type="text" class="form-control input-sm "
+                                       placeholder="Code Barre" id="codebarre" >
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-
-                        <input type="text" class="form-control input-sm "
-                                placeholder="Code Barre" id="codebarre" >
                         {!! Form::open(['url' => 'Achat']) !!}
                         <table class="table" id="maintable">
                             <thead>
@@ -80,13 +46,23 @@
                                 <tr>
                                     <th colspan="6"></th>
                                     <td ><strong>Total HT :</strong></td>
-                                    <td><span id="total-ht" class="total-ht">00000.00</span></td>
+                                    <td><span id="total-ht" class="total-ht">00000.00</span>
+
+                                    </td>
+
                                 </tr>
                                 <tr>
                                     <th colspan="6"></th>
                                     <td ><strong>Total TTC :</strong></td>
-                                    <td><span id="total-ttc" class="total-ttc">  00000.00</span></td>
+                                    <td><span id="total-ttc" class="total-ttc" >  00000.00</span></td>
+
                                 </tr>
+                            <tr>
+                                <td>
+                                    <input type="text"  name="total_ht" class="total_ht_input" hidden>
+                                    <input type="text"  name="total_ttc" class="total_ttc_input" hidden>
+                                </td>
+                            </tr>
                             </tfoot>
                         </table>
                     </div>
@@ -107,7 +83,7 @@
             @foreach($produits as $produit)
                 if (this.value == '{{$produit->code_barre}}' ){
                 $(maintable).find(tbody).append(' <tr id="trtaa3h">' +
-                        '<td><input name="id[]" value="{{$produit->id}}" hidden></td><td id="tdta3ah"><button name="btn" class="delete btn btn-dafault btn-sm" value="Delete""><span class="glyphicon glyphicon-remove"></span></button></td><td><input class="form-control input-sm" value="{{$produit->code_barre}}"></td> <td class="cart-product-quantity "><div class="input-group"> <span class="input-group-btn"><input type="text" id="quantity" name="quantite[]" value="0" class="qty form-control input-sm"/><a name="btn" class="minus btn btn-dafault btn-sm" value="Delete" onclick="minus(this)"><span class="glyphicon glyphicon-minus"></span></a><a name="btn" class="plus btn btn-dafault btn-sm" value="Delete" onclick="plus(this)"><span class="glyphicon glyphicon-plus"></span></a></span><div></td> <td class="cart-product-price"> <span id="price" class="amount">{{$produit->prix_achat}}</span>  </td> <td class="cart-product-subtotal"> <span id="total_amount" class="total_amount"></span> </td> <td> <input type="text" class="form-control input-sm" disabled value="17"> </td> <td> <span id="total_amount_ttc" class="total_amount_ttc"></span> </td></tr>')
+                        '<td><input name="id[]" value="{{$produit->id}}" hidden></td><td><button name="btn" class="delete btn btn-dafault btn-sm" value="Delete"><span class="glyphicon glyphicon-remove"></span></button></td><td><input class="form-control input-sm" value="{{$produit->code_barre}}"></td> <td class="cart-product-quantity"><div class="input-group"> <span class="input-group-btn"><input type="text" id="quantity" name="quantite[]" value="0" class="qty form-control input-sm"/><a name="btn" class="minus btn btn-dafault btn-sm" value="Delete" onclick="minus(this)"><span class="glyphicon glyphicon-minus"></span></a><a name="btn" class="plus btn btn-dafault btn-sm" value="Delete" onclick="plus(this)"><span class="glyphicon glyphicon-plus"></span></a></span><div></td> <td class="cart-product-price"> <span id="price" class="amount">{{$produit->prix_achat}}</span>  </td> <td class="cart-product-subtotal"> <span id="total_amount" class="total_amount"></span> </td> <td> <input type="text" class="form-control input-sm" disabled value="17"> </td> <td> <span id="total_amount_ttc" class="total_amount_ttc"></span> </td></tr>')
             }
                 @endforeach
             }
@@ -124,6 +100,8 @@
                 var new_tttc =parseFloat($('.total-ttc').text())-parseFloat(totalttc);
                 $('.total-ht').text(new_ttth.toFixed(2));
                 $('.total-ttc').text(new_tttc.toFixed(2));
+                $('.total_ht_input').val(new_ttth.toFixed(2));
+                $('.total_ttc_input').val(new_tttc.toFixed(2));
                 $(this).closest("tr").remove();
             });
 
@@ -162,11 +140,14 @@
 
             });
             $('.total-ht').text(th.toFixed(2));
+            $('.total_ht_input').val(th.toFixed(2));
             $('.total_amount_ttc').each(function () {
                 var value = parseFloat($(this).text());
                 ttc = ttc + value ;
             });
             $('.total-ttc').text(ttc.toFixed(2));
+            $('.total_ttc_input').val(ttc.toFixed(2));
+
         }
     </script>
 @endsection

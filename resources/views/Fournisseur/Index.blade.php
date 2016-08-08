@@ -35,7 +35,7 @@
                     <td>{{$fournisseur->tel}}</td>
                     <td>{{$fournisseur->email}}</td>
                     <td class="text-center">
-                        <a href="#" class="example-popover-3" data-trigger="hover"  data-placement="bottom"><i class="fa fa-plus-circle"></i></a>
+                        <a href="#" data-toggle="popover" class="example-popover-3" data-trigger="hover"  data-placement="bottom"><i class="fa fa-plus-circle"></i></a>
 
                         <div class="example-popover-3-content hidden">
                             <div>
@@ -46,12 +46,11 @@
                                AI:  <b>{{$fournisseur->ai}}</b><br>
                             </div>
                         </div>
-
                         <div class="example-popover-3-title hidden" >
                             <b>Détails événement</b>
                         </div>
                     </td>
-                    <tdh class="text-center"><a href="{{url('Fournisseur.Modification?id='.$fournisseur->id)}}" class="fa fa-edit"></a></tdh>
+                    <td class="text-center"><a href="{{url('Fournisseur.Modification?id='.$fournisseur->id)}}" class="fa fa-edit"></a></td>
                     <td class="text-center"><a data-id="#" class=" open-AddBookDialog fa fa-trash" data-toggle="modal" data-target="#confirmDelete" data-title="Delete User"></a></td>
                 </tr>
             @endforeach
